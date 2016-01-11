@@ -13,7 +13,7 @@ def calling(git_date):
     subprocess.call("git status")
     subprocess.call("git add .")
     os.environ["GIT_COMMITTER_DATE"] = str(git_date)
-    subprocess.call("git commit -am " +str(element) +" --date="+str(git_date))
+    subprocess.call("git commit -am \""+str(element) +"\" --date="+str(git_date))
     subprocess.call("git push origin master")
 
 def git_pusher(end_date = datetime.now(),start_date = datetime(2015,3,26,19,53,41)):
