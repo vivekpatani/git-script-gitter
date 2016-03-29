@@ -3,14 +3,17 @@ import subprocess
 from datetime import datetime
 from datetime import date
 from datetime import timedelta
+import random
 #from dateutil.relativedelta import relativedelta
 
 def calling(git_date):
+    changes = ["Added new Updates","Code cleanup","Removed Failing Function","Ready for release","Hotfix A101","Feature update 00321"]
+    element = random.choice(changes)
     subprocess.call("git --version")
     subprocess.call("git status")
     subprocess.call("git add .")
     os.environ["GIT_COMMITTER_DATE"] = str(git_date)
-    subprocess.call("git commit -am \"Changing Things\" --date="+str(git_date))
+    subprocess.call("git commit -am " +str(element) +" --date="+str(git_date))
     subprocess.call("git push origin master")
 
 def git_pusher(end_date = datetime.now(),start_date = datetime(2015,3,26,19,53,41)):
@@ -31,8 +34,7 @@ def git_pusher(end_date = datetime.now(),start_date = datetime(2015,3,26,19,53,4
     log.close()
 
 def main():
-    git_pusher(end_date = datetime(2016,3,29,19,53,41),start_date = datetime(2015,3,26,19,53,41))
+    git_pusher(end_date = datetime(2016,3,29,19,53,41),start_date = datetime(2016,1,10,19,53,41))
 
 if __name__ == "__main__":
     main()
-    
