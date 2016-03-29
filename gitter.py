@@ -12,26 +12,13 @@ def calling(git_date):
     os.environ["GIT_COMMITTER_DATE"] = str(git_date)
     subprocess.call("git commit -am \"Changing Things\" --date="+str(git_date))
     subprocess.call("git push origin master")
-    
-    #temp = input("Enter to close:")
 
-def date_calc():
-    today = date(2014,4,21)
-    yesterday = today - timedelta(days=1)
-    print(today,yesterday)
+def git_pusher(end_date = datetime.now(),start_date = datetime(2015,3,26,19,53,41)):
 
-def git_pusher(n=1,end_date = datetime.now(),start_date = datetime(2014,1,1,19,53,41)):
-
-    print(end_date.isoformat())
-    delta = start_date - end_date
+    delta = end_date - start_date
     print(delta.days)
-
-    if int(delta.days) > n:
-        n = delta
-
-    print(delta)
-    while True:
-        break
+    n = int(delta.days) + 1
+    
     for i in range(0,n):
         current = start_date + timedelta(days=i)
         print(current)
@@ -44,9 +31,7 @@ def git_pusher(n=1,end_date = datetime.now(),start_date = datetime(2014,1,1,19,5
     log.close()
 
 def main():
-    git_pusher(n=50,end_date = datetime(2016,3,29,15,48,12),start_date = datetime(2016,2,12,19,53,41))
-    #calling()
-    #date_calc()
+    git_pusher(end_date = datetime(2016,3,29,19,53,41),start_date = datetime(2015,3,26,19,53,41))
 
 if __name__ == "__main__":
     main()
