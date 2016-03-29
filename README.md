@@ -1,4 +1,5 @@
-# Gitter Python  
+# git-script-gitter
+Script used to push updates over a date range  
 
 ## Prerequisites  
 1.) Python 3.5.1+ or it should be working with Python 2.7+ with a few mods.  
