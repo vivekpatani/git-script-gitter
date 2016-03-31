@@ -33,9 +33,9 @@ def git_pusher(end_date = datetime.now(),start_date = datetime(2015,3,26,19,53,4
         
     log.close()
 
-def git_single_push_today():
+def git_single_push_today(git_date=datetime.now()):
 
-    git_date = datetime.now()
+    print(git_date)
     calling(git_date)
     with open("./logwa.txt","a") as log:
         pushed = "Pushed for " + str(git_date) + "\n"
@@ -47,7 +47,7 @@ def git_single_push_today():
 
 def main():
     #git_single_push_today()
-    git_pusher(end_date = datetime(2016,3,29,19,53,41),start_date = datetime(2016,1,10,19,53,41))
+    git_pusher(end_date = datetime(2016,4,3,19,53,41),start_date = datetime(2016,3,31,19,53,41))
 
 if __name__ == "__main__":
     main()
