@@ -47,7 +47,7 @@ def git_single_push_today(git_date=datetime.now()):
 
 def main():
     #git_single_push_today()
-    git_pusher(end_date = datetime(2016,4,3,19,53,41),start_date = datetime(2016,3,31,19,53,41))
+    git_pusher(end_date = datetime(2016,5,16,19,53,41),start_date = datetime(2016,4,27,19,53,41))
 
 if __name__ == "__main__":
     main()
