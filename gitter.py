@@ -1,4 +1,5 @@
 import os
+import platform
 import subprocess
 from datetime import datetime
 from datetime import date
@@ -9,14 +10,23 @@ import random
 def calling(git_date):
     changes = ["Added new Updates","Code cleanup","Removed Failing Function","Ready for release","Hotfix A101","Feature update 00321"]
     element = random.choice(changes)
-    subprocess.call("git --version")
-    subprocess.call("git status")
-    subprocess.call("git add .")
-    os.environ["GIT_COMMITTER_DATE"] = str(git_date)
-    subprocess.call("git commit -am \""+str(element) +"\" --date="+str(git_date))
-    subprocess.call("git push origin master")
+    #subprocess.call("")
+    #subprocess.call("git --version")
+    #subprocess.call("git status")
+    print(platform.system())
+    if (platform.system() == 'Windows'):
+        subprocess.call("git add .")
+        os.environ["GIT_COMMITTER_DATE"] = str(git_date)
+        subprocess.call("git commit -am \""+str(element) +"\" --date="+str(git_date))
+        subprocess.call("git push origin master")
+        
+    elif (platform.system() == 'Linux'):
+        subprocess.Popen(['git', 'add', '--all'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        os.environ["GIT_COMMITTER_DATE"] = str(git_date)
+        subprocess.Popen(['git', 'commit', '-am', '\"' + 'str(element)' + '\"', '--date=' + str(git_date)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.Popen(['git', 'push', 'origin', 'master'])
 
-def git_pusher(end_date = datetime.now(),start_date = datetime(2015,3,26,19,53,41)):
+def git_pusher(end_date = datetime.now(),start_date = datetime(2016,6,26,19,53,41)):
 
     delta = end_date - start_date
     print(delta.days)
