@@ -23,7 +23,7 @@ def calling(git_date):
     elif (platform.system() == 'Linux'):
         subprocess.Popen(['git', 'add', '--all'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         os.environ["GIT_COMMITTER_DATE"] = str(git_date)
-        subprocess.Popen(['git', 'commit', '-am', '\"' + 'str(element)' + '\"', '--date=' + str(git_date)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.Popen(['git', 'commit', '-am', '\"' + str(element) + '\"', '--date=' + str(git_date)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         subprocess.Popen(['git', 'push', 'origin', 'master'])
 
 def git_pusher(end_date = datetime.now(),start_date = datetime(2016,6,26,19,53,41)):
