@@ -39,6 +39,7 @@ def git_pusher(end_date = datetime.now(),start_date = datetime(2016,6,26,19,53,4
         pushed = "Pushed for " + str(current) + "\n"
         with open("./logwa.txt","a") as log:
             log.write(pushed)
+            print(pushed)
         current = ""
         
     log.close()
