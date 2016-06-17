@@ -21,6 +21,7 @@ def calling(git_date):
         subprocess.call("git push origin master")
         
     elif (platform.system() == 'Linux'):
+        print("Calling")
         subprocess.Popen(['git', 'add', '--all'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         os.environ["GIT_COMMITTER_DATE"] = str(git_date)
         subprocess.Popen(['git', 'commit', '-am', '\"' + str(element) + '\"', '--date=' + str(git_date)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
