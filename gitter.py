@@ -24,7 +24,7 @@ def calling(git_date):
         subprocess.Popen(['git', 'add', '--all'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         os.environ["GIT_COMMITTER_DATE"] = str(git_date)
         subprocess.Popen(['git', 'commit', '-am', '\"' + str(element) + '\"', '--date=' + str(git_date)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        subprocess.Popen(['git', 'push', 'origin', 'master'])
+        subprocess.Popen(['git', 'push', 'origin', 'master'],stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 def git_pusher(end_date = datetime.now(),start_date = datetime(2016,6,26,19,53,41)):
 
@@ -57,7 +57,7 @@ def git_single_push_today(git_date=datetime.now()):
 
 def main():
     #git_single_push_today()
-    git_pusher(end_date = datetime(2016,6,16,19,53,41),start_date = datetime(2016,5,17,19,53,41))
+    git_pusher(end_date = datetime(2016,7,17,19,53,41),start_date = datetime(2016,6,17,19,53,41))
 
 if __name__ == "__main__":
     main()
